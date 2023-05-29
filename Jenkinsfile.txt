@@ -1,12 +1,12 @@
 pipeline {
     agent any
     parameters {
-        choice(name: 'Branch', choices: ['dev', 'test'], description: 'choose Branch name' )
+        choice(name: 'Branch', choices: ['poc', 'test'], description: 'choose Branch name' )
     }
     stages {
         stage('clone') {
             steps {
-                checkout scmGit(branches: [[name: '*/master']], extensions: [], userRemoteConfigs: [[url: 'https://github.com/sonudevops/java-hello-world-with-maven.git']])
+                checkout scmGit(branches: [[name: '*/poc']], extensions: [], userRemoteConfigs: [[url: 'https://github.com/sonudevops/java-hello-world-with-maven.git']])
             }
         }
         stage('build') {
