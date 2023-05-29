@@ -24,6 +24,12 @@ pipeline {
                sh 'echo "Deploying to dev"'
             }
         }
+        stage('docker image  build') {
+            steps {
+                sh 'docker build -t helloword .'
+            }
+        }
+        
 
     }   
 }
